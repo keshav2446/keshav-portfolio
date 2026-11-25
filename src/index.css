@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-cyber-grid {
+  background-size: 44px 44px;
+  background-image:
+    linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 42, 84, 0.04) 1px, transparent 1px);
+}
+
+/* Subtle CRT / NOC Scanline Overlay */
+.noc-scanlines {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.22) 50%,
+    rgba(0, 0, 0, 0.22)
+  );
+  background-size: 100% 4px;
+}
+
+/* Animated Packet Flow on Topology Links */
+@keyframes packetFlow {
+  0% {
+    stroke-dashoffset: 120;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-packet {
+  stroke-dasharray: 10 14;
+  animation: packetFlow 1.1s linear infinite;
+}
+
+@keyframes floatGlow {
+  0%, 100% {
+    transform: translateY(0px);
+    box-shadow: 0 0 25px rgba(255, 42, 84, 0.14);
+  }
+  50% {
+    transform: translateY(-4px);
+    box-shadow: 0 0 38px rgba(0, 240, 255, 0.18);
+  }
+}
+
+.animate-float-glow {
+  animation: floatGlow 4s ease-in-out infinite;
+}
+
+@keyframes borderSweep {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.cyber-border-animated {
+  background: linear-gradient(120deg, rgba(255, 42, 84, 0.45), rgba(0, 240, 255, 0.35), rgba(0, 255, 102, 0.35));
+  background-size: 220% 220%;
+  animation: borderSweep 6s ease infinite;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #070709;
+}
+::-webkit-scrollbar-thumb {
+  background: #232634;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF2A54;
+}
